@@ -71,13 +71,26 @@ export const typeDefs = gql`
     accounts: [Cat!]!
   }
 
+  type Viewer {
+    id: ID!
+    token: String
+    avatar: String
+    didRequest: Boolean!
+  }
+
+  input LogInInput {
+    code: String!
+  }
+
   type Query {
+    authUrl: String!
     users: [User!]!
     user(id: ID!): User!
     cat(id: ID!): Cat!
   }
 
   type Mutation {
-    followUser(id: ID!): User!
+    logIn(input: LogInInput): Viewer!
+    logOut: Viewer!
   }
 `;

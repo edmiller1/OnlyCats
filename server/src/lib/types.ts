@@ -52,6 +52,13 @@ export interface Cat {
   posts: Post[];
 }
 
+export interface Viewer {
+  _id?: string;
+  token?: string;
+  avatar?: string;
+  didRequest: boolean;
+}
+
 export interface Database {
   users: Collection<User>;
   cats: Collection<Cat>;
