@@ -77,8 +77,12 @@ const logInViaGoogle = async (
 
 export const viewerResolvers: IResolvers = {
   Query: {
-    authUrl: () => {
-      return "Query.authUrl";
+    authUrl: (): string => {
+      try {
+        return Google.authUrl;
+      } catch (error) {
+        throw new Error(`Failed to query Google auth url: ${error}`);
+      }
     },
   },
   Mutation: {
