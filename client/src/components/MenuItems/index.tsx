@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import { Menu, Transition } from "@headlessui/react";
 import { Viewer } from "../../lib/types";
 
@@ -25,19 +26,7 @@ export const MenuItems: React.FC<Props> = ({ viewer }) => {
         <div className="py-1">
           <Menu.Item>
             {({ active }) => (
-              <span
-                className={classNames(
-                  active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                  "block px-4 py-2 text-sm"
-                )}
-              >
-                Account settings
-              </span>
-            )}
-          </Menu.Item>
-          <form method="POST" action="#">
-            <Menu.Item>
-              {({ active }) => (
+              <Link to={`/user/${viewer.id}`}>
                 <button
                   type="submit"
                   className={classNames(
@@ -45,11 +34,24 @@ export const MenuItems: React.FC<Props> = ({ viewer }) => {
                     "block w-full text-left px-4 py-2 text-sm"
                   )}
                 >
-                  Sign out
+                  Account Settings
                 </button>
-              )}
-            </Menu.Item>
-          </form>
+              </Link>
+            )}
+          </Menu.Item>
+          <Menu.Item>
+            {({ active }) => (
+              <button
+                type="submit"
+                className={classNames(
+                  active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                  "block w-full text-left px-4 py-2 text-sm"
+                )}
+              >
+                Sign out
+              </button>
+            )}
+          </Menu.Item>
         </div>
       </Menu.Items>
     </Transition>
