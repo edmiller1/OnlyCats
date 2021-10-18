@@ -68,11 +68,11 @@ export const typeDefs = gql`
     avatar: String!
     contact: String!
     catBucks: Int!
-    accounts: [Cat!]!
+    accounts: [Cat!]
   }
 
   type Viewer {
-    id: ID!
+    id: ID
     token: String
     avatar: String
     didRequest: Boolean!

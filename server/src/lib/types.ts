@@ -25,7 +25,6 @@ export interface Reply {
   likes: number;
   dislikes: number;
 }
-
 export interface User {
   _id: string;
   token: string;
@@ -34,7 +33,7 @@ export interface User {
   contact: string;
   catBucks: number;
   accounts: Cat[];
-  authorised?: boolean;
+  authorized?: boolean;
 }
 
 export interface Cat {
