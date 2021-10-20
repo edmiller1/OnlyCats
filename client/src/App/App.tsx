@@ -19,7 +19,9 @@ function App() {
         <Route
           exact
           path="/"
-          render={(props) => <Home {...props} viewer={viewer} />}
+          render={(props) => (
+            <Home {...props} viewer={viewer} setViewer={setViewer} />
+          )}
         />
         <Route
           exact
@@ -29,7 +31,9 @@ function App() {
         <Route
           exact
           path="/user/:id"
-          render={(props) => <User {...props} viewer={viewer} />}
+          render={(props) => (
+            <User {...props} viewer={viewer} setViewer={setViewer} />
+          )}
         />
         <Route component={NotFound} />
       </Switch>

@@ -7,9 +7,10 @@ import { MenuItems } from "../../components";
 
 interface Props {
   viewer: Viewer;
+  setViewer: (viewer: Viewer) => void;
 }
 
-export const AppHeader: React.FC<Props> = ({ viewer }) => {
+export const AppHeader: React.FC<Props> = ({ viewer, setViewer }) => {
   const dropDownMenu =
     viewer.id && viewer.avatar ? (
       <div className="w-56 text-right">
@@ -17,13 +18,14 @@ export const AppHeader: React.FC<Props> = ({ viewer }) => {
           <div>
             <Menu.Button>
               <img
+                referrerPolicy="no-referrer"
                 src={viewer.avatar}
                 alt="viewer avatar"
                 className="rounded-full w-16 h-16"
               />
             </Menu.Button>
           </div>
-          <MenuItems viewer={viewer} />
+          <MenuItems viewer={viewer} setViewer={setViewer} />
         </Menu>
       </div>
     ) : (
