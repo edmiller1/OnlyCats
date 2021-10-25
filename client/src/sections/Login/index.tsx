@@ -9,8 +9,11 @@ import {
   LogInVariables,
 } from "../../graphql/mutations/LogIn/types";
 import { Viewer } from "../../lib/types";
-import { ErrorNotification, SuccessNotification } from "../../components";
-import { displaySuccessNotification } from "../../lib/util";
+import { ErrorNotification } from "../../components";
+import {
+  displaySuccessNotification,
+  displayErrorMessage,
+} from "../../lib/util";
 
 //Images
 import googleLogo from "./assets/google_logo.png";
@@ -23,13 +26,16 @@ interface Props {
 }
 
 export const Login: React.FC<Props> = ({ setViewer }) => {
+  let authUrlError = null;
   const client = useApolloClient();
   const [logIn, { data: LogInData, loading: logInLoading, error: logInError }] =
     useMutation<LogInData, LogInVariables>(LOG_IN, {
       onCompleted: (data) => {
         if (data && data.logIn) {
           setViewer(data.logIn);
-          displaySuccessNotification("HOORAY!!!");
+          displaySuccessNotification("Logged In");
+        } else {
+          console.log("ERROR");
         }
       },
     });
@@ -52,9 +58,14 @@ export const Login: React.FC<Props> = ({ setViewer }) => {
     try {
       const { data } = await client.query<AuthUrlData>({
         query: AUTH_URL,
+        errorPolicy: "all",
       });
       window.location.href = data.authUrl;
-    } catch (error) {}
+    } catch {
+      displayErrorMessage(
+        "Sorry! We weren't able to log you in. Please try again later!"
+      );
+    }
   };
 
   if (logInLoading) {
@@ -97,6 +108,7 @@ export const Login: React.FC<Props> = ({ setViewer }) => {
 
   return (
     <div>
+      {authUrlError}
       {logInErrorElement}
       <div className="flex" style={{ height: "100vh" }}>
         <div className="w-2/3">

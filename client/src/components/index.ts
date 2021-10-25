@@ -1,4 +1,4 @@
 export * from "./AppHeader";
 export * from "./ErrorNotification";
-export * from "./MenuItems";
+export * from "./AppHeader/components/MenuItems";
 export * from "./SuccessNotification";
