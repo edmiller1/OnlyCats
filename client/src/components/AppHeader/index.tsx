@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/onlycats_logo.png";
 import { Viewer } from "../../lib/types";
 import { Menu } from "@headlessui/react";
-import { MenuItems } from "../../components";
+import { MenuItems } from "./components";
 
 interface Props {
   viewer: Viewer;
@@ -13,7 +13,8 @@ interface Props {
 export const AppHeader: React.FC<Props> = ({ viewer, setViewer }) => {
   const dropDownMenu =
     viewer.id && viewer.avatar ? (
-      <div className="text-right">
+      <div className="text-right flex items-center">
+        <i className="far fa-bell mt-2 mr-10 text-2xl text-gray-500 cursor-pointer"></i>
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button>
@@ -70,7 +71,6 @@ export const AppHeader: React.FC<Props> = ({ viewer, setViewer }) => {
               </svg>
             </button>
           </div>
-          <i className="far fa-bell mt-2 mr-10 text-2xl text-gray-500 cursor-pointer"></i>
           {dropDownMenu}
         </div>
       </div>

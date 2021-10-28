@@ -79,7 +79,7 @@ export const Login: React.FC<Props> = ({ setViewer }) => {
           focusable="false"
           data-prefix="fas"
           data-icon="spinner"
-          className="animate-spin svg-inline--fa fa-spinner fa-w-16 w-20 h-20 text-purple-300"
+          className="animate-spin svg-inline--fa fa-spinner fa-w-16 w-12 h-12 text-purple-300"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
