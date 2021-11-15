@@ -1,24 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import logo from "../../assets/onlycats-logo.png";
 
 export const NotFound: React.FC = () => {
+  const history = useHistory();
   return (
-    <div className="flex flex-col justify-center items-center">
-      <img
-        src="https://i.imgur.com/a5CaqSQh.jpg"
-        alt="404 cat"
-        style={{ width: "500px", height: "525px" }}
-      />
-      <h1 className="text-2xl text-purple-700 font-bold">404 Error</h1>
-      <h1 className="text-6xl font-bold">Page not found</h1>
-      <span className="text-gray-400">
-        Sorry, we couldn't find the page you were looking for.
-      </span>
-      <Link to="/" className="mt-10">
-        <span className="text-purple-500 cursor-pointer">
-          Go back home {"->"}
-        </span>
-      </Link>
+    <div className="full-profile-gradient flex justify-center items-center">
+      <div className="w-3/8 h-full bg-white rounded-lg shadow-2xl">
+        <div className="flex flex-col  justify-center items-center px-8 py-8">
+          <img src={logo} alt="onlycats logo" className="w-20 h-20 mb-10" />
+          <h1 className="text-3xl font-semibold mb-10">
+            Oops! This page doesn't exist!
+          </h1>
+          <button
+            className="py-3 px-20 border-1 border-gray-300 rounded-full text-gray-800 hover:bg-main-purple hover:text-white transition-all"
+            onClick={() => history.push("/")}
+          >
+            Take me back to safety
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

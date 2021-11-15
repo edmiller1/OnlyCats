@@ -43,7 +43,8 @@ export interface Cat {
   profileImage: string;
   bannerImage: string;
   bio: string;
-  location: string;
+  city: string;
+  country: string;
   link: string;
   dateJoined: string;
   followers: number;

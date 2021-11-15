@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/onlycats_logo.png";
+import logo from "../../assets/onlycats-logo.png";
 import { Viewer } from "../../lib/types";
 import { Menu } from "@headlessui/react";
 import { MenuItems } from "./components";
@@ -32,8 +32,8 @@ export const AppHeader: React.FC<Props> = ({ viewer, setViewer }) => {
     ) : (
       <div className="mt-2">
         <Link to="/login">
-          <button className="border-1 border-gray-300 px-5 py-2 mr-2 rounded-full flex items-center hover:bg-main-purple hover:text-gray-900 transition-all">
-            <span className="text-gray-800">Login</span>
+          <button className="border-1 border-gray-300 px-5 py-2 mr-2 rounded-full flex items-center text-gray-800 hover:bg-main-purple hover:text-white transition-all">
+            <span>Login</span>
           </button>
         </Link>
       </div>

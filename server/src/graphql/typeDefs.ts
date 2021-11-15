@@ -8,7 +8,8 @@ export const typeDefs = gql`
     profileImage: String!
     bannerImage: String!
     bio: String!
-    location: String!
+    city: String!
+    country: String!
     link: String!
     dateJoined: String!
     followers: String!
@@ -63,11 +64,10 @@ export const typeDefs = gql`
 
   type User {
     id: ID!
-    token: String!
     name: String!
     avatar: String!
     contact: String!
-    catBucks: Int!
+    catBucks: Int
     accounts: [Cat!]
   }
 
@@ -84,7 +84,6 @@ export const typeDefs = gql`
 
   type Query {
     authUrl: String!
-    users: [User!]!
     user(id: ID!): User!
     cat(id: ID!): Cat!
   }

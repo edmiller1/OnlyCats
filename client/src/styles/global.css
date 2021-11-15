@@ -10,3 +10,36 @@
 .show {
   display: block;
 }
+
+.goBack {
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.goBack:hover {
+  transform: translate(-25px);
+  color: rgba(17, 24, 39, 1);
+}
+
+.profile-gradient {
+  min-height: 89vh;
+  background: rgb(212, 107, 231);
+  background: linear-gradient(
+    90deg,
+    rgba(212, 107, 231, 1) 25%,
+    rgba(176, 107, 231, 1) 65%,
+    rgba(151, 74, 245, 1) 90%
+  );
+}
+
+.full-profile-gradient {
+  min-height: 88vh;
+  background: rgb(212, 107, 231);
+  background: linear-gradient(
+    90deg,
+    rgba(212, 107, 231, 1) 25%,
+    rgba(176, 107, 231, 1) 65%,
+    rgba(151, 74, 245, 1) 90%
+  );
+}

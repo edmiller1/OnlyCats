@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useMutation } from "@apollo/client";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Menu, Transition } from "@headlessui/react";
 import { Viewer } from "../../../../lib/types";
 import { LOG_OUT } from "../../../../graphql/mutations";
@@ -20,20 +20,23 @@ function classNames(...classes: any) {
 }
 
 export const MenuItems: React.FC<Props> = ({ viewer, setViewer }) => {
+  const history = useHistory();
   const [logOut] = useMutation<LogOutData>(LOG_OUT, {
     onCompleted: (data) => {
       if (data && data.logOut) {
         setViewer(data.logOut);
+        sessionStorage.removeItem("token");
         displaySuccessNotification("Logged Out!");
       }
     },
     onError: () => {
-      displayErrorMessage("Sorry! We cou;dn't log you out. Try again later.");
+      displayErrorMessage("Sorry! We couldn't log you out. Try again later.");
     },
   });
 
   const handleLogOut = () => {
     logOut();
+    history.push("/");
   };
 
   return (
@@ -58,7 +61,7 @@ export const MenuItems: React.FC<Props> = ({ viewer, setViewer }) => {
                     "block w-full text-left px-4 py-2 text-sm"
                   )}
                 >
-                  Account Settings
+                  Profile
                 </button>
               </Link>
             )}

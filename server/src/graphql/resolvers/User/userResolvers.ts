@@ -1,30 +1,26 @@
-//import { Request } from "express";
+import { Request } from "express";
 import { IResolvers } from "apollo-server-express";
-import { ObjectId } from "mongodb";
-import { Cat, User, Database } from "../../../lib/types";
-import { UserArgs, UserAccountsData } from "./types";
+import { User, Database, Cat } from "../../../lib/types";
+import { authorise } from "../../../lib/utils";
+import { UserArgs } from "./types";
 
 export const userResolvers: IResolvers = {
   Query: {
-    users: async (
-      _root: undefined,
-      _args: {},
-      { db }: { db: Database }
-    ): Promise<User[]> => {
-      const users = await db.users.find({}).toArray();
-
-      return users;
-    },
     user: async (
       _root: undefined,
       { id }: UserArgs,
-      { db }: { db: Database }
+      { db, req }: { db: Database; req: Request }
     ): Promise<User> => {
       try {
         const user = await db.users.findOne({ _id: id });
 
         if (!user) {
           throw new Error("user cannot be found");
+        }
+
+        const viewer = await authorise(db, req);
+        if (viewer && viewer._id === user._id) {
+          user.authorized = true;
         }
 
         return user;
@@ -37,6 +33,12 @@ export const userResolvers: IResolvers = {
   User: {
     id: (user: User): string => {
       return user._id;
+    },
+    catBucks: (user: User): number | null => {
+      return user.authorized ? user.catBucks : null;
+    },
+    accounts: (user: User): Cat[] | null => {
+      return user.accounts;
     },
   },
 };

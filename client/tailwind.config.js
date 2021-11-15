@@ -4,8 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "main-purple": "#A883F8",
-        "secondary-purple": "#d4c1fc",
+        "main-purple": "#974AF5",
+        "purple-1": "#8432BA",
+        "purple-2": "#D46BE7",
+        "purple-3": "#A42ED1",
+        "purple-4": "#7C2ED1",
+        "purple-5": "#632BC7",
       },
       borderWidth: {
         1: "1px",

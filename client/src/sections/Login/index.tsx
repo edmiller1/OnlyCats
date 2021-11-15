@@ -14,25 +14,28 @@ import {
   displaySuccessNotification,
   displayErrorMessage,
 } from "../../lib/util";
+import { useHistory } from "react-router-dom";
 
 //Images
 import googleLogo from "./assets/google_logo.png";
 import catCollage from "./assets/cat_collage.png";
-import logo from "../../assets/onlycats_logo.png";
-import whiteCatLogo from "./assets/light_cat.png";
+import logo from "../../assets/onlycats-logo.png";
+import whiteCatLogo from "./assets/purple-cat.png";
 
 interface Props {
   setViewer: (viewer: Viewer) => void;
 }
 
 export const Login: React.FC<Props> = ({ setViewer }) => {
+  const history = useHistory();
   let authUrlError = null;
   const client = useApolloClient();
   const [logIn, { data: LogInData, loading: logInLoading, error: logInError }] =
     useMutation<LogInData, LogInVariables>(LOG_IN, {
       onCompleted: (data) => {
-        if (data && data.logIn) {
+        if (data && data.logIn && data.logIn.token) {
           setViewer(data.logIn);
+          sessionStorage.setItem("token", data.logIn.token);
           displaySuccessNotification("Logged In");
         } else {
           console.log("ERROR");
@@ -112,6 +115,12 @@ export const Login: React.FC<Props> = ({ setViewer }) => {
       {logInErrorElement}
       <div className="flex" style={{ height: "100vh" }}>
         <div className="w-2/3">
+          <div
+            className="flex items-center absolute px-10 py-10 top-5 left-20 goBack"
+            onClick={() => history.push("/")}
+          >
+            <i className="fas fa-chevron-left text-5xl"></i>
+          </div>
           <img
             src={catCollage}
             alt="cat"
