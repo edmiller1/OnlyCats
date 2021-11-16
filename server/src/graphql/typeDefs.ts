@@ -17,22 +17,12 @@ export const typeDefs = gql`
     posts: [Post!]
   }
 
-  type Cats {
-    total: Int!
-    result: [Cats!]!
-  }
-
   type Comment {
     id: ID!
     author: String!
     content: String!
     likes: Int!
     replies: [Reply!]
-  }
-
-  type Comments {
-    total: Int!
-    result: [Comment!]!
   }
 
   type Post {
@@ -45,21 +35,11 @@ export const typeDefs = gql`
     comments: [Comment!]
   }
 
-  type Posts {
-    total: Int!
-    result: [Post!]!
-  }
-
   type Reply {
     id: ID!
     author: String!
     content: String!
     likes: Int!
-  }
-
-  type Replies {
-    total: Int!
-    result: [Reply!]!
   }
 
   type User {

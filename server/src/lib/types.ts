@@ -7,7 +7,7 @@ export interface Post {
   media?: string;
   datePosted: string;
   likes: number;
-  comments: ObjectId[];
+  comments: Comment[];
 }
 
 export interface Comment {
@@ -15,7 +15,7 @@ export interface Comment {
   author: string;
   content: string;
   likes: number;
-  replies: ObjectId[];
+  replies: Reply[];
 }
 
 export interface Reply {
