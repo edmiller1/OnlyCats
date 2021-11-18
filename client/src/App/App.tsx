@@ -105,7 +105,9 @@ function App() {
         <Route
           exact
           path="/cat/:id"
-          render={(props) => <Cat viewer={viewer} setViewer={setViewer} />}
+          render={(props) => (
+            <Cat {...props} viewer={viewer} setViewer={setViewer} />
+          )}
         />
         <Route component={NotFound} />
       </Switch>

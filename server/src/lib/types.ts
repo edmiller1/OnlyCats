@@ -49,6 +49,7 @@ export interface Cat {
   dateJoined: string;
   followers: number;
   subscriptionPrice: number;
+  owner: string;
   posts: Post[];
 }
 

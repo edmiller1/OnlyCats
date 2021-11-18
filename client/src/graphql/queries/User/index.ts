@@ -9,6 +9,7 @@ export const USER = gql`
       contact
       catBucks
       accounts {
+        id
         username
         profileName
         profileImage

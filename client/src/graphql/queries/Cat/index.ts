@@ -15,6 +15,7 @@ export const CAT = gql`
       dateJoined
       followers
       subscriptionPrice
+      owner
     }
   }
 `;

@@ -14,6 +14,7 @@ export const typeDefs = gql`
     dateJoined: String!
     followers: String!
     subscriptionPrice: Float!
+    owner: String!
     posts: [Post!]
   }
 

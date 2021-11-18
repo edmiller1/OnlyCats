@@ -37,6 +37,7 @@ export const User = ({
   });
 
   const user = data ? data.user : null;
+  console.log(user);
   const viewerIsUser = viewer.id === match.params.id;
 
   const userProfileElement =

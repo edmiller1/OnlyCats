@@ -19,6 +19,7 @@ const cats: Cat[] = [
     dateJoined: "September 2021",
     followers: 12,
     subscriptionPrice: 10,
+    owner: "61518774ba834050d18261b8",
     posts: [],
   },
   {
@@ -36,6 +37,7 @@ const cats: Cat[] = [
     dateJoined: "November 2021",
     followers: 45,
     subscriptionPrice: 15,
+    owner: "61518f71ba834050d18261b9",
     posts: [],
   },
   {
@@ -53,6 +55,7 @@ const cats: Cat[] = [
     dateJoined: "October 2021",
     followers: 45,
     subscriptionPrice: 19,
+    owner: "61519208ba834050d18261ba",
     posts: [],
   },
   {
@@ -70,6 +73,7 @@ const cats: Cat[] = [
     dateJoined: "October 2021",
     followers: 60,
     subscriptionPrice: 0,
+    owner: "61519351ba834050d18261bb",
     posts: [],
   },
   {
@@ -87,6 +91,7 @@ const cats: Cat[] = [
     dateJoined: "September 2021",
     followers: 25,
     subscriptionPrice: 9,
+    owner: "6152cea5125c737535927ff0",
     posts: [],
   },
   {
@@ -104,6 +109,7 @@ const cats: Cat[] = [
     dateJoined: "October 2021",
     followers: 86,
     subscriptionPrice: 6,
+    owner: "6152d10c125c737535927ff1",
     posts: [],
   },
   {
@@ -121,6 +127,7 @@ const cats: Cat[] = [
     dateJoined: "November 2021",
     followers: 89,
     subscriptionPrice: 25,
+    owner: "115201425216755017567",
     posts: [],
   },
   {
@@ -138,6 +145,7 @@ const cats: Cat[] = [
     dateJoined: "November 2021",
     followers: 94,
     subscriptionPrice: 25,
+    owner: "115201425216755017567",
     posts: [],
   },
 ];
@@ -167,6 +175,7 @@ const users: User[] = [
         dateJoined: "September 2021",
         followers: 12,
         subscriptionPrice: 10,
+        owner: "61518774ba834050d18261b8",
         posts: [],
       },
     ],
@@ -195,6 +204,7 @@ const users: User[] = [
         dateJoined: "November 2021",
         followers: 45,
         subscriptionPrice: 15,
+        owner: "61518f71ba834050d18261b9",
         posts: [],
       },
     ],
@@ -223,6 +233,7 @@ const users: User[] = [
         dateJoined: "October 2021",
         followers: 45,
         subscriptionPrice: 19,
+        owner: "61519208ba834050d18261ba",
         posts: [],
       },
     ],
@@ -251,6 +262,7 @@ const users: User[] = [
         dateJoined: "October 2021",
         followers: 60,
         subscriptionPrice: 0,
+        owner: "61519351ba834050d18261bb",
         posts: [],
       },
     ],
@@ -279,6 +291,7 @@ const users: User[] = [
         dateJoined: "September 2021",
         followers: 25,
         subscriptionPrice: 9,
+        owner: "6152cea5125c737535927ff0",
         posts: [],
       },
     ],
@@ -307,6 +320,7 @@ const users: User[] = [
         dateJoined: "October 2021",
         followers: 86,
         subscriptionPrice: 6,
+        owner: "6152d10c125c737535927ff1",
         posts: [],
       },
     ],

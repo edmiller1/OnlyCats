@@ -12,6 +12,7 @@ export interface Cat_cat {
   dateJoined: string;
   followers: number;
   subscriptionPrice: number;
+  owner: string;
 }
 
 export interface Cat {

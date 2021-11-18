@@ -5,7 +5,7 @@ import logo from "../../assets/onlycats-logo.png";
 export const NotFound: React.FC = () => {
   const history = useHistory();
   return (
-    <div className="full-profile-gradient flex justify-center items-center">
+    <div className="profile-gradient flex justify-center items-center">
       <div className="w-3/8 h-full bg-white rounded-lg shadow-2xl">
         <div className="flex flex-col  justify-center items-center px-8 py-8">
           <img src={logo} alt="onlycats logo" className="w-20 h-20 mb-10" />
