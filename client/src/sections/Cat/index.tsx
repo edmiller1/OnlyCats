@@ -5,6 +5,7 @@ import { CAT } from "../../graphql/queries";
 import { Cat as CatData, CatVariables } from "../../graphql/queries/Cat/types";
 import { AppHeader } from "../../components";
 import { Viewer } from "../../lib/types";
+import { CatProfile } from "./components";
 
 interface Props {
   viewer: Viewer;
@@ -28,11 +29,14 @@ export const Cat = ({
 
   const cat = data ? data.cat : null;
   const isCatOwner = viewer.id === cat?.owner;
-  console.log(cat);
+
+  const catProfileElement = cat ? (
+    <CatProfile cat={cat} isCatOwner={isCatOwner} />
+  ) : null;
   return (
     <div>
       <AppHeader viewer={viewer} setViewer={setViewer} />
-      <h1>Name: {cat?.profileName}</h1>
+      {catProfileElement}
     </div>
   );
 };
