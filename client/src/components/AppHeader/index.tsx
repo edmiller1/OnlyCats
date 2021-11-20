@@ -14,7 +14,7 @@ export const AppHeader: React.FC<Props> = ({ viewer, setViewer }) => {
   const dropDownMenu =
     viewer.id && viewer.avatar ? (
       <div className="text-right flex items-center">
-        <i className="far fa-bell mt-2 mr-10 text-2xl text-gray-500 cursor-pointer"></i>
+        <i className="far fa-bell mt-2 mr-10 text-2xl text-gray-400 cursor-pointer hover:text-gray-500 transition-all"></i>
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button>
@@ -40,7 +40,7 @@ export const AppHeader: React.FC<Props> = ({ viewer, setViewer }) => {
     );
 
   return (
-    <div className="w-full h-20 border-gray-400 shadow-lg">
+    <div className="w-full h-20 border-gray-400 shadow-xl">
       <div className="flex justify-between mx-5 mt-2 items-center">
         <Link to="/">
           <img src={logo} alt="logo" className="h-16 w-16" />

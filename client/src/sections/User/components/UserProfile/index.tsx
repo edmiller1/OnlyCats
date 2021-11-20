@@ -8,26 +8,27 @@ interface Props {
 
 export const UserProfile: React.FC<Props> = ({ user }) => {
   return (
-    <div className="profile-gradient flex flex-col justify-center items-center">
-      <div className="w-1/2 h-1/2 bg-white rounded-lg shadow-2xl">
-        <div className="flex justify-between items-center px-5 py-4">
-          <div className="flex">
+    <div className="px-20 py-10">
+      <div className="flex justify-center rounded-lg shadow-lg bg-white">
+        <div className="flex justify-between items-center w-full">
+          <div className="flex px-10 py-5">
             <img
-              className="rounded-full h-36 w-36"
               src={user.avatar}
-              alt="user avatar"
+              alt="avatar"
+              className="w-24 h-24 rounded-full"
             />
-            <div className="flex flex-col pt-3 px-3">
-              <h2 className="text-3xl">{user.name}</h2>
-              <h3 className="text-xl text-gray-600 pl-1">{user.contact}</h3>
-              <h3 className="text-lg text-gray-600 ">
-                CatBucks: {user.catBucks}
-              </h3>
+            <div className="flex flex-col px-5">
+              <h2 className="text-2xl font-semibold">{user.name}</h2>
+              <span className="text-gray-600 text-base">{user.contact}</span>
+              <span className="text-black text-base font-semibold">
+                Account Balance: &nbsp;
+                <span className="text-gray-600 text-base">{user.catBucks}</span>
+              </span>
             </div>
           </div>
-          <div>
-            <button className="py-3 px-6 border-1 border-gray-300 rounded-full text-gray-800 hover:bg-main-purple hover:text-white transition-all">
-              <span className="text-lg">+ Add CatBucks</span>
+          <div className="px-10 py-5">
+            <button className="py-2 px-4 rounded-lg text-white text-base bg-main-purple hover:bg-purple-600 transition-all">
+              add catbucks
             </button>
           </div>
         </div>
