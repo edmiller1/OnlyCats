@@ -10,6 +10,6 @@ export interface Cats {
   cats: Cats_cats;
 }
 
-export interface CatVariables {
+export interface CatsVariables {
   limit: number;
 }
