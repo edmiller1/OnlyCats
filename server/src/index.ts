@@ -5,7 +5,6 @@ import cookieParser from "cookie-parser";
 import { ApolloServer } from "apollo-server-express";
 import { typeDefs, resolvers } from "./graphql";
 import { connectDatabase } from "./database";
-import { userResolvers } from "./graphql/resolvers/User/userResolvers";
 
 const mount = async (app: Application) => {
   const db = await connectDatabase();

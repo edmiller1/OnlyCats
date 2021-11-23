@@ -28,7 +28,7 @@ export const UserProfile: React.FC<Props> = ({ user }) => {
           </div>
           <div className="px-10 py-5">
             <button className="py-2 px-4 rounded-lg text-white text-base bg-main-purple hover:bg-purple-600 transition-all">
-              add catbucks
+              Add catbucks
             </button>
           </div>
         </div>

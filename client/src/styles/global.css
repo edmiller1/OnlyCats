@@ -43,3 +43,29 @@
     rgba(151, 74, 245, 1) 90%
   );
 }
+
+.pageLength {
+  min-height: 89vh;
+}
+
+.addCat {
+  transition: all 0.3s ease-out;
+}
+
+.addCat:hover {
+  background-color: rgba(229, 231, 235, 1);
+}
+
+.addCat:hover i {
+  color: rgba(55, 65, 81, 1);
+}
+
+.cat-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.cat-profile h3 {
+  line-height: 0%;
+  font-size: 1.3rem;
+}

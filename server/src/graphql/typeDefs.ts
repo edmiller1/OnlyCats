@@ -12,7 +12,7 @@ export const typeDefs = gql`
     country: String!
     link: String!
     dateJoined: String!
-    followers: String!
+    followers: Int!
     subscriptionPrice: Float!
     owner: String!
     posts: [Post!]
@@ -67,6 +67,7 @@ export const typeDefs = gql`
     authUrl: String!
     user(id: ID!): User!
     cat(id: ID!): Cat!
+    cats(limit: Int): [Cat!]!
   }
 
   type Mutation {

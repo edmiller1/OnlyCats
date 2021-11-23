@@ -10,7 +10,8 @@ module.exports = {
         "purple-3": "#A42ED1",
         "purple-4": "#7C2ED1",
         "purple-5": "#632BC7",
-        "purple-6": "#FFA1C5",
+        "purple-6": "#A773C3",
+        "main-pink": "#FFA1C5",
       },
       borderWidth: {
         1: "1px",

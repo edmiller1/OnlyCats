@@ -10,14 +10,10 @@ export const USER = gql`
       catBucks
       accounts {
         id
-        username
         profileName
         profileImage
         bio
-        city
-        country
         followers
-        subscriptionPrice
       }
     }
   }
