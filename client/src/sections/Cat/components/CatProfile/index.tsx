@@ -1,12 +1,7 @@
 import React from "react";
 import { Tab } from "@headlessui/react";
 import { Cat as CatData } from "../../../../graphql/queries/Cat/types";
-import { useQuery } from "@apollo/client";
-import { CATS } from "../../../../graphql/queries";
-import {
-  Cats as CatsData,
-  CatsVariables,
-} from "../../../../graphql/queries/Cats/types";
+import { RecommendedCats } from "..";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -18,12 +13,6 @@ interface Props {
 }
 
 export const CatProfile: React.FC<Props> = ({ cat, isCatOwner }) => {
-  const { data, loading, error } = useQuery<CatsData, CatsVariables>(CATS, {
-    variables: {
-      limit: 3,
-    },
-  });
-
   const additionalProfileInfo = !isCatOwner ? (
     <div className="float-right py-4 px-8">
       <button className="bg-main-purple rounded-3xl py-2 px-5 font-semibold text-white hover:bg-purple-4 transition-all">
@@ -44,7 +33,7 @@ export const CatProfile: React.FC<Props> = ({ cat, isCatOwner }) => {
   return (
     <div className="pageLength flex w-full">
       <div className="w-3/12 border-1"></div>
-      <div className="w-6/12 border-1 overflow-y-auto">
+      <div className="w-5/12 border-1 overflow-y-auto">
         <div>
           <img
             src={cat.bannerImage}
@@ -133,7 +122,9 @@ export const CatProfile: React.FC<Props> = ({ cat, isCatOwner }) => {
           </Tab.Group>
         </div>
       </div>
-      <div className="w-3/12 border-1"></div>
+      <div className="w-4/12 border-1">
+        <RecommendedCats />
+      </div>
     </div>
   );
 };

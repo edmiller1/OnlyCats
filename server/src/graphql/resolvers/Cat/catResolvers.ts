@@ -1,7 +1,7 @@
 import { IResolvers } from "apollo-server-express";
 import { ObjectId } from "mongodb";
-import { Cat, Database, User } from "../../../lib/types";
-import { CatArgs, CatsArgs } from "./types";
+import { Cat, Database } from "../../../lib/types";
+import { CatArgs } from "./types";
 
 export const catResolvers: IResolvers = {
   Query: {
@@ -22,20 +22,24 @@ export const catResolvers: IResolvers = {
         throw new Error(`Failed to query cat - ${error}`);
       }
     },
-    cats: async (
+    randomCats: async (
       _root: undefined,
-      { limit }: CatsArgs,
+      _args: {},
       { db }: { db: Database }
     ): Promise<Cat[]> => {
       try {
-        //limit = limit || db.cats.countDocuments();
-        const cats = await db.cats.find().limit(limit).toArray();
+        const cats = await db.cats.find({}).toArray();
 
         if (!cats) {
           throw new Error("Cats cannot be found");
         }
 
-        return cats;
+        const randomCats: Cat[] = [];
+        for (let i = 0; i < 3; i++) {
+          randomCats.push(cats[Math.floor(Math.random() * cats.length)]);
+        }
+
+        return randomCats;
       } catch (error) {
         throw new Error(`Failed to query cats - ${error}`);
       }

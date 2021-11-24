@@ -67,7 +67,7 @@ export const typeDefs = gql`
     authUrl: String!
     user(id: ID!): User!
     cat(id: ID!): Cat!
-    cats(limit: Int): [Cat!]!
+    randomCats: [Cat!]!
   }
 
   type Mutation {

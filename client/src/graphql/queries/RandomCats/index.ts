@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const CATS = gql`
-  query Cats($limit: Number) {
-    cats(limit: $limit) {
+export const RANDOM_CATS = gql`
+  query randomCats {
+    randomCats {
       id
       profileImage
       profileName

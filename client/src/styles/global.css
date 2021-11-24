@@ -69,3 +69,17 @@
   line-height: 0%;
   font-size: 1.3rem;
 }
+
+.recommended-cat {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.recommended-cat h4 {
+  font-size: 1rem;
+  line-height: 0.25rem;
+}
+
+.recommended-cat span {
+  font-size: 1rem;
+}
