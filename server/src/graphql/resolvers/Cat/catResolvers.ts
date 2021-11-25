@@ -28,18 +28,13 @@ export const catResolvers: IResolvers = {
       { db }: { db: Database }
     ): Promise<Cat[]> => {
       try {
-        const cats = await db.cats.find({}).toArray();
+        const cats = await db.cats.find({}).limit(3).toArray();
 
         if (!cats) {
           throw new Error("Cats cannot be found");
         }
 
-        const randomCats: Cat[] = [];
-        for (let i = 0; i < 3; i++) {
-          randomCats.push(cats[Math.floor(Math.random() * cats.length)]);
-        }
-
-        return randomCats;
+        return cats;
       } catch (error) {
         throw new Error(`Failed to query cats - ${error}`);
       }

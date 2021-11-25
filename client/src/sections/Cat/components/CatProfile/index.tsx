@@ -1,7 +1,7 @@
 import React from "react";
 import { Tab } from "@headlessui/react";
 import { Cat as CatData } from "../../../../graphql/queries/Cat/types";
-import { RecommendedCats } from "..";
+import { CatNavigation, RecommendedCats } from "..";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -24,15 +24,14 @@ export const CatProfile: React.FC<Props> = ({ cat, isCatOwner }) => {
       <button className="bg-main-purple rounded-3xl mr-2 py-2 px-5 font-semibold text-white hover:bg-purple-4 transition-all">
         New Post
       </button>
-      <button className="bg-main-purple rounded-3xl ml-2 py-2 px-5 font-semibold text-white hover:bg-purple-4 transition-all">
-        Edit Profile
-      </button>
     </div>
   );
 
   return (
     <div className="pageLength flex w-full">
-      <div className="w-3/12 border-1"></div>
+      <div className="w-3/12 border-1">
+        <CatNavigation cat={cat} isCatOwner={isCatOwner} />
+      </div>
       <div className="w-5/12 border-1 overflow-y-auto">
         <div>
           <img

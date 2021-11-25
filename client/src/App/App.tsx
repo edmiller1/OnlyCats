@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useMutation } from "@apollo/client";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Cat, Home, Login, NotFound, User } from "../sections";
+import { Cat, Home, Login, NotFound, Settings, User } from "../sections";
 import { ErrorNotification, AppHeaderSkeleton } from "../components";
 import { Viewer } from "../lib/types";
 import { LOG_IN } from "../graphql/mutations";
@@ -100,6 +100,13 @@ function App() {
           path="/user/:id"
           render={(props) => (
             <User {...props} viewer={viewer} setViewer={setViewer} />
+          )}
+        />
+        <Route
+          exact
+          path="/user/:id/settings"
+          render={(props) => (
+            <Settings {...props} viewer={viewer} setViewer={setViewer} />
           )}
         />
         <Route
