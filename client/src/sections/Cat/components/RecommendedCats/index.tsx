@@ -8,7 +8,6 @@ export const RecommendedCats: React.FC = () => {
   const { data, loading, error } = useQuery<CatsData>(RANDOM_CATS);
 
   const recommendedCats = data ? data.randomCats : null;
-  console.log("***", recommendedCats);
 
   let recommendedCatsElement = recommendedCats ? (
     <div className="mx-10 my-5 h-96 rounded-2xl bg-gray-100">
