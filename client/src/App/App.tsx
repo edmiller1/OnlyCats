@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { createContext, useState, useEffect, useRef } from "react";
 import { useMutation } from "@apollo/client";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Cat, Home, Login, NotFound, Settings, User } from "../sections";

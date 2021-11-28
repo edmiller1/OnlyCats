@@ -18,7 +18,7 @@ export const CatNavigation: React.FC<Props> = ({ cat, isCatOwner }) => {
           <i className="fas fa-paw mr-2"></i>Profile
         </li>
       </Link>
-      <Link to={`/user/${cat.id}/settings`}>
+      <Link to={`/user/${cat.owner}/settings`}>
         <li className="text-2xl my-6 pl-5 pr-2 cursor-pointer rounded-3xl text-gray-900 hover:bg-gray-200 transition-all">
           <i className="fas fa-cog mr-2"></i>Settings
         </li>

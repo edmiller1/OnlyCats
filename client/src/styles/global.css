@@ -83,3 +83,40 @@
 .recommended-cat span {
   font-size: 1rem;
 }
+
+.settings-nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  color: #000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings-nav:hover {
+  color: #000;
+  background-color: rgba(229, 231, 235, 1);
+}
+
+.settings-nav-active {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  color: #000;
+  border-left-width: 4px;
+  border-color: rgba(151, 74, 245, 1);
+  background-color: rgba(237, 233, 254, 1);
+}
+
+.settings-nav-active:hover {
+  color: #000;
+}

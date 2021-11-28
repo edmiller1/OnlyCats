@@ -1,4 +1,15 @@
 import React from "react";
+import { RouteComponentProps, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { CAT } from "../../../../graphql/queries";
+import {
+  Cat as CatData,
+  CatVariables,
+} from "../../../../graphql/queries/Cat/types";
+
+interface MatchParams {
+  id: string;
+}
 
 export const ProfileSettings: React.FC = () => {
   return (
