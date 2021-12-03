@@ -1,20 +1,47 @@
 import React from "react";
-import { RouteComponentProps, useParams } from "react-router-dom";
+import { RouteComponentProps } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import { USER } from "../../../../graphql/queries";
+import {
+  User as UserData,
+  UserVariables,
+} from "../../../../graphql/queries/User/types";
 import { CAT } from "../../../../graphql/queries";
 import {
   Cat as CatData,
   CatVariables,
 } from "../../../../graphql/queries/Cat/types";
+import { SettingsNavigation } from "..";
+import { AppHeader } from "../../../../components";
+import { Viewer } from "../../../../lib/types";
+import { userInfo } from "os";
+
+interface ViewerProps {
+  viewer: Viewer;
+  setViewer: (viewer: Viewer) => void;
+}
 
 interface MatchParams {
   id: string;
 }
 
-export const ProfileSettings: React.FC = () => {
+export const ProfileSettings = ({ viewer, setViewer }: ViewerProps) => {
+  // const { data, loading, error } = useQuery<CatData, CatVariables>(CAT, {
+  //   variables: {
+  //     id: userInfo.
+  //   },
+  // });
+
+  // const {userData, userLoading, userError} = useQuery<UserData, UserVariables>(USER, {
+  //   variables: {
+  //     id: data?.cat.owner
+  //   }
+  // })
+
+  // const cat = data ? data.cat : null;
   return (
     <div className="w-3/4 py-5 px-5 border-l-1">
-      <h2 className="text-xl">Profile - Milo</h2>
+      <h2 className="text-xl">Profile - Frank</h2>
       <span className="text-gray-500">
         Note: This information will be displayed publicly.
       </span>
