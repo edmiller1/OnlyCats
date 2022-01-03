@@ -1,47 +1,27 @@
 import React from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { USER } from "../../../../graphql/queries";
-import {
-  User as UserData,
-  UserVariables,
-} from "../../../../graphql/queries/User/types";
 import { CAT } from "../../../../graphql/queries";
 import {
   Cat as CatData,
   CatVariables,
 } from "../../../../graphql/queries/Cat/types";
-import { SettingsNavigation } from "..";
-import { AppHeader } from "../../../../components";
-import { Viewer } from "../../../../lib/types";
-import { userInfo } from "os";
 
-interface ViewerProps {
-  viewer: Viewer;
-  setViewer: (viewer: Viewer) => void;
-}
+export const ProfileSettings = () => {
+  const { catId }: any = useParams();
+  const { data, loading, error } = useQuery<CatData, CatVariables>(CAT, {
+    variables: {
+      id: catId,
+    },
+  });
 
-interface MatchParams {
-  id: string;
-}
+  const cat = data ? data.cat : null;
 
-export const ProfileSettings = ({ viewer, setViewer }: ViewerProps) => {
-  // const { data, loading, error } = useQuery<CatData, CatVariables>(CAT, {
-  //   variables: {
-  //     id: userInfo.
-  //   },
-  // });
-
-  // const {userData, userLoading, userError} = useQuery<UserData, UserVariables>(USER, {
-  //   variables: {
-  //     id: data?.cat.owner
-  //   }
-  // })
-
-  // const cat = data ? data.cat : null;
   return (
     <div className="w-3/4 py-5 px-5 border-l-1">
-      <h2 className="text-xl">Profile - Frank</h2>
+      <h2 className="text-xl">
+        Profile - <span className="font-bold">{cat?.profileName}</span>
+      </h2>
       <span className="text-gray-500">
         Note: This information will be displayed publicly.
       </span>
@@ -53,11 +33,13 @@ export const ProfileSettings = ({ viewer, setViewer }: ViewerProps) => {
               className="h-10 mb-5 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
               type="text"
               id="forms-labelOverInputCode"
+              value={cat?.username}
             />
             <label htmlFor="username">About (Bio)</label>
             <textarea
               className="h-24 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
               id="forms-labelOverInputCode"
+              value={cat?.bio}
             />
             <span className="text-gray-500 text-xs">
               A brief description for your cat's profile.
@@ -66,7 +48,7 @@ export const ProfileSettings = ({ viewer, setViewer }: ViewerProps) => {
           <div className="w-2/6 flex justify-center">
             <span className="text-base">photo</span>
             <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+              src={cat?.profileImage}
               alt="person"
               className="h-44 w-44 rounded-full cursor-pointer object-cover"
             />
@@ -78,6 +60,7 @@ export const ProfileSettings = ({ viewer, setViewer }: ViewerProps) => {
             className="h-10 mb-5 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
             type="text"
             id="forms-labelOverInputCode"
+            value={cat?.profileName}
           />
           <div className="flex">
             <div className="flex flex-col w-1/2 mr-3">
@@ -86,6 +69,7 @@ export const ProfileSettings = ({ viewer, setViewer }: ViewerProps) => {
                 className="h-10 mb-5 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
                 type="text"
                 id="forms-labelOverInputCode"
+                value={cat?.city}
               />
             </div>
             <div className="flex flex-col w-1/2 ml-3">
@@ -94,6 +78,7 @@ export const ProfileSettings = ({ viewer, setViewer }: ViewerProps) => {
                 className="h-10 mb-5 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
                 type="text"
                 id="forms-labelOverInputCode"
+                value={cat?.country}
               />
             </div>
           </div>
@@ -101,10 +86,15 @@ export const ProfileSettings = ({ viewer, setViewer }: ViewerProps) => {
             <div className="flex flex-col w-1/2 mr-3">
               <label htmlFor="link">URL</label>
               <input
-                className="h-10 mb-5 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                className="h-10 px-3 text-xs placeholder-gray-600 border rounded-lg focus:shadow-outline"
                 type="text"
                 id="forms-labelOverInputCode"
+                value={cat?.link.trim()}
               />
+              <span className="text-gray-500 text-xs">
+                It's best to just copy and paste the link to your cats preferred
+                social media platform.
+              </span>
             </div>
             <div className="flex flex-col w-1/2 ml-3">
               <label className="block text-left" style={{ maxWidth: "400px" }}>
@@ -125,9 +115,9 @@ export const ProfileSettings = ({ viewer, setViewer }: ViewerProps) => {
           <div className="mt-10">
             <h3>Banner Image</h3>
             <img
-              src="https://images.unsplash.com/photo-1614850715649-1d0106293bd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFubmVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              src={cat?.bannerImage}
               alt="banner"
-              className="w-full h-72 object-cover"
+              className="w-full h-72 object-cover rounded-md"
             />
           </div>
           <div className="mt-10 flex justify-end">

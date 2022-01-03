@@ -120,3 +120,24 @@
 .settings-nav-active:hover {
   color: #000;
 }
+
+.main-page-header {
+  min-height: 100vh;
+  background: rgb(212, 107, 231);
+  background: linear-gradient(
+    118deg,
+    rgba(212, 107, 231, 1) 30%,
+    rgba(255, 161, 197, 1) 47%,
+    rgba(176, 107, 231, 1) 72%,
+    rgba(167, 115, 195, 1) 91%
+  );
+}
+
+.google-button {
+  transition: all 0.3s ease-in-out;
+}
+
+.google-button:hover {
+  background: #000;
+  color: #fff;
+}

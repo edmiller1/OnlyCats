@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useMutation } from "@apollo/client";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Cat, Home, Login, NotFound, Settings, User } from "../sections";
+import { Cat, Home, Login, NotFound, Settings, User, Main } from "../sections";
 import { ErrorNotification, AppHeaderSkeleton } from "../components";
 import { Viewer } from "../lib/types";
 import { LOG_IN } from "../graphql/mutations";
@@ -82,42 +82,40 @@ function App() {
   return (
     <Router>
       {logInErrorElement}
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={(props) => (
-            <Home {...props} viewer={viewer} setViewer={setViewer} />
-          )}
-        />
-        <Route
-          exact
-          path="/login"
-          render={(props) => <Login {...props} setViewer={setViewer} />}
-        />
-        <Route
-          exact
-          path="/user/:id"
-          render={(props) => (
-            <User {...props} viewer={viewer} setViewer={setViewer} />
-          )}
-        />
-        <Route
-          exact
-          path="/user/:id/settings"
-          render={(props) => (
-            <Settings {...props} viewer={viewer} setViewer={setViewer} />
-          )}
-        />
-        <Route
-          exact
-          path="/cat/:id"
-          render={(props) => (
-            <Cat {...props} viewer={viewer} setViewer={setViewer} />
-          )}
-        />
-        {/* <Route component={NotFound} /> */}
-      </Switch>
+      <Route exact path="/" component={Main} />
+      <Route
+        exact
+        path="/home"
+        render={(props) => (
+          <Home {...props} viewer={viewer} setViewer={setViewer} />
+        )}
+      />
+      <Route
+        exact
+        path="/login"
+        render={(props) => <Login {...props} setViewer={setViewer} />}
+      />
+      <Route
+        exact
+        path="/user/:id"
+        render={(props) => (
+          <User {...props} viewer={viewer} setViewer={setViewer} />
+        )}
+      />
+      <Route
+        path="/user/:id/settings"
+        render={(props) => (
+          <Settings {...props} viewer={viewer} setViewer={setViewer} />
+        )}
+      />
+      <Route
+        exact
+        path="/cat/:id"
+        render={(props) => (
+          <Cat {...props} viewer={viewer} setViewer={setViewer} />
+        )}
+      />
+      {/* <Route component={NotFound} /> */}
     </Router>
   );
 }

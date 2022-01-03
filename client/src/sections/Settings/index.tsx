@@ -48,14 +48,14 @@ export const Settings = ({
 
   const catSettingsElement =
     user && viewerIsUser ? (
-      <div className="h-96 w-5/6 flex m-auto border-t-1 border-r-1 border-l-1 rounded-2xl shadow-xl">
+      <div className=" w-5/6 flex m-auto border-t-1 border-r-1 border-l-1 rounded-2xl shadow-xl">
         <SettingsNavigation user={user} url={url} />
         <Route exact path={path}>
           <ProfileSettingsBlank />
         </Route>
         <Route path={`${path}/:catId`}>
           {/* <SettingsNavigation user={user} url={url} /> */}
-          <ProfileSettings viewer={viewer} setViewer={setViewer} />
+          <ProfileSettings />
         </Route>
       </div>
     ) : (

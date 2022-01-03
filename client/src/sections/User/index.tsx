@@ -69,7 +69,7 @@ export const User = ({
   return (
     <div>
       <AppHeader viewer={viewer} setViewer={setViewer} />
-      <div className="bg-gray-100">{userProfileElement}</div>
+      <div className="">{userProfileElement}</div>
     </div>
   );
 };

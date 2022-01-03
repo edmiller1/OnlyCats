@@ -99,7 +99,7 @@ export const Login: React.FC<Props> = ({ setViewer }) => {
 
   if (LogInData && LogInData.logIn) {
     const { id: viewerId } = LogInData.logIn;
-    return <Redirect to={`/user/${viewerId}`} />;
+    return <Redirect to={`/home`} />;
   }
 
   const logInErrorElement = logInError ? (

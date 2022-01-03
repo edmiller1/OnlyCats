@@ -42,7 +42,7 @@ export const AppHeader: React.FC<Props> = ({ viewer, setViewer }) => {
   return (
     <div className="bg-white w-full h-20 border-gray-300 border-b-1">
       <div className="flex justify-between mx-5 mt-2 items-center">
-        <Link to="/">
+        <Link to="/home">
           <img src={logo} alt="logo" className="h-16 w-16" />
         </Link>
         <div className="flex items-center">
